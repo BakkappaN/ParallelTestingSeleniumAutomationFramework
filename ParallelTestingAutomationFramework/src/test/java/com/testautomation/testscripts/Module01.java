@@ -1,6 +1,9 @@
 package com.testautomation.testscripts;
 
 import java.util.Map;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
@@ -11,10 +14,10 @@ import com.testautomation.base.TestFactory;
 import com.testautomation.extentreports.ExtentTestManager;
 import com.testautomation.pageobjects.BasePage;
 import com.testautomation.utilities.ExcelHandler;
-import com.testautomation.utilities.PropertiesFileReader;
 
 public class Module01 extends BaseTest {
 	
+	private static final Logger logger = LogManager.getLogger(Module01.class);
 	
 	@Parameters({"testDataFile","testDataSheet"})
 	@Test(groups = { "Module01", "TC_001" }, description = "Test login page")
@@ -30,8 +33,10 @@ public class Module01 extends BaseTest {
 			ExtentTestManager.getTest().log(Status.INFO, "test case 1 passed");	
 			
 			new TestFactory().testHandler("PASS", driver, ExtentTestManager.getTest(), null,testDataFile,testDataSheet,testData.get("TestCaseId"));
+			logger.info("Test case 1 completed");
 		} catch (AssertionError | Exception e) {
 			new TestFactory().testHandler("FAIL", driver, ExtentTestManager.getTest(), e,testDataFile,testDataSheet,testData.get("TestCaseId"));
+			logger.error(e.toString());
 		}
 	}
 	

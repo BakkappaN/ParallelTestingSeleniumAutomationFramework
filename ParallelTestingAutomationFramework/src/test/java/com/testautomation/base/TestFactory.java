@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -17,6 +19,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.testautomation.extentreports.ExtentManager;
+import com.testautomation.listener.ITestListenerImpl;
 import com.testautomation.utilities.Configuration;
 import com.testautomation.utilities.ExcelHandler;
 import com.testautomation.utilities.PropertiesFileReader;
@@ -25,15 +28,15 @@ import com.testautomation.utilities.TestDataHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestFactory {
+	
+	private static final Logger logger = LogManager.getLogger(TestFactory.class);
+	
 	public static WebDriver getDriver() {
-		// Map<String,String> config=null;
 		WebDriver driver = null;
 		PropertiesFileReader configData = new PropertiesFileReader();
 		Properties config = null;
 		try {
 			config = configData.getPropertyForConfig();
-			System.out.println(config.get("Configuration").toString());
-			System.out.println(config.get("TestExecutionEnvironment").toString());
 
 			switch (config.get("TestExecutionEnvironment").toString()) {
 			case "LOCAL":
@@ -41,7 +44,7 @@ public class TestFactory {
 					// WebDriverManager.chromedriver().setup();
 					System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 					driver = new ChromeDriver();
-					System.out.println("Lunched chrome browser ");
+					logger.info("Lunched chrome browser ");
 				} else if (config.get("Browser").equals("IE")) {
 					WebDriverManager.iedriver().setup();
 					DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -62,7 +65,7 @@ public class TestFactory {
 				break;
 
 			default:
-				System.out.println("Invalid browser environment selected . . .");
+				logger.info("Invalid browser environment selected . . .");
 			}
 			driver.manage().window().maximize();
 			driver.get(configData.getPropertyValue("app.url"));
@@ -92,7 +95,7 @@ public class TestFactory {
 			if (testCaseId != null) {
 				ExcelHandler.UpdateTestResultsToExcel(ExcelHandler.getValidExcelPath(testDataPath), sheetName,
 						testStatus, testCaseId);
-				System.out.println("Updated test case status for " + testCaseId);
+				logger.info("Updated test case status for " + testCaseId);
 			}
 			Assert.fail();
 			break;
@@ -110,7 +113,7 @@ public class TestFactory {
 			if (testCaseId != null) {
 				ExcelHandler.UpdateTestResultsToExcel(ExcelHandler.getValidExcelPath(testDataPath), sheetName,
 						testStatus, testCaseId);
-				System.out.println("Updated test case status for " + testCaseId);
+				logger.info("Updated test case status for " + testCaseId);
 			}
 			break;
 

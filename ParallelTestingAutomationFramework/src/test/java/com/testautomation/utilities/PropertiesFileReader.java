@@ -8,7 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class PropertiesFileReader {
+	
+	private static final Logger logger = LogManager.getLogger(PropertiesFileReader.class);
+
 
 	public static String getPropertyValue(String key) throws Exception {
 		Properties properties = null;
@@ -29,6 +35,7 @@ public class PropertiesFileReader {
 	private static Object[] getAllPropertiesFiles() {
 		String environment = new TestDataHandler().getEnvironment();
 		String dirPath = "./src/test/resources/properties/" + environment + "/";
+		logger.info("Property file path : "+dirPath);
 		File directory = new File(dirPath);
 		File[] listOfFiles = directory.listFiles();
 		List list = new ArrayList();

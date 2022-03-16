@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -16,9 +18,12 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.testautomation.base.BaseTest;
 
 public class ExtentManager {
 	
+	private static final Logger logger = LogManager.getLogger(ExtentManager.class);
+
 	private static ExtentReports extent;
 	private static String reportFileName = "Test-Automaton-Report";
  
@@ -30,7 +35,8 @@ public class ExtentManager {
  
     //Create an extent report instance
     public static ExtentReports createInstance() {
-        String fileName = "./reports/AutomationReport_"+getCurrentDateTimeForReport()+".html";       
+        String fileName = "./reports/AutomationReport_"+getCurrentDateTimeForReport()+".html";
+        logger.info("Extent report path : "+fileName);
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(fileName);
         htmlReporter.config().setTestViewChartLocation(ChartLocation.BOTTOM);
         htmlReporter.config().setChartVisibilityOnOpen(true);

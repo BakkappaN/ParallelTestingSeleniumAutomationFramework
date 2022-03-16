@@ -2,6 +2,8 @@ package com.testautomation.base;
 
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -9,6 +11,8 @@ import com.testautomation.utilities.PropertiesFileReader;
 import com.testautomation.utilities.TestDataHandler;
 
 public class BaseTest {
+	
+	private static final Logger logger = LogManager.getLogger(BaseTest.class);
 	
 	@BeforeSuite(alwaysRun=true)
 	public void oneTimeSetUp() {
@@ -24,7 +28,7 @@ public class BaseTest {
 	
 	@AfterSuite(alwaysRun=true)
 	public void oneTimeTearDown() {
-		System.out.println("Completed with executing all the Test cases...");
+		logger.info("Completed with executing all the Test cases...");
 	}
 	
 	
