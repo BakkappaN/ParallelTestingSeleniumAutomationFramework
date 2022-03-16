@@ -16,7 +16,7 @@
 		<classes>
 			<class name="com.testautomation.testscripts.Module01" />
 		</classes>
-	</test> <!-- Test -->
+	</test> 
 
 	<listeners>
 		<listener class-name="com.testautomation.listener.ITestListenerImpl" />
