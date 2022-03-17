@@ -19,4 +19,6 @@ Parallel Testing Selenium Automation Framework
 
 ## Step4: Create suite & execute
 
-# Enjoye...!!!
+##END
+
+# Enjoy...!!!
