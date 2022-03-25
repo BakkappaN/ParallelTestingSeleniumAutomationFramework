@@ -20,7 +20,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * @author Bakkappa N
+ * @author TheTechie AutomationLabs
  *
  */
 public class PageUtility {
