@@ -32,6 +32,8 @@ public class PageUtility {
 	//alert
 	
 	/**
+	 * @author TheTechie AutomationLabs
+	 *
 	 * @param element accepts webpage element
 	 * @param driver accepts any browser driver object
 	 */
@@ -43,6 +45,8 @@ public class PageUtility {
 	}
 	
 	/**
+	 * @author TheTechie AutomationLabs
+	 *
 	 * @param element accepts webpage element
 	 * @param driver accepts any browser driver object
 	 */
@@ -55,6 +59,8 @@ public class PageUtility {
 	}
 	
 	/**
+	 * @author TheTechie AutomationLabs
+	 *
 	 * @param element accepts webpage element
 	 * @param driver accepts any browser driver object
 	 */
@@ -73,6 +79,7 @@ public class PageUtility {
 	}
 	
 	/**
+	 * @author TheTechie AutomationLabs
 	 * 
 	 * @param element of webpage
 	 * @param index to be selected from dropdown
@@ -83,6 +90,7 @@ public class PageUtility {
 	}
 
 	/**
+	 * @author TheTechie AutomationLabs
 	 * 
 	 * @param element of webpage
 	 * @param value to be selected from dropdown
@@ -93,6 +101,7 @@ public class PageUtility {
 	}
 
 	/**
+	 * @author TheTechie AutomationLabs
 	 * 
 	 * @param element of webpage
 	 * @param str to be selected from dropdown
@@ -103,6 +112,7 @@ public class PageUtility {
 	}
 
 	/**
+	 * @author TheTechie AutomationLabs
 	 * 
 	 * @param element of webpage
 	 * @return list of values from dropdown list
@@ -118,6 +128,7 @@ public class PageUtility {
 	}
 
 	/**
+	 * @author TheTechie AutomationLabs
 	 * 
 	 * @param element of webpage
 	 * @return
@@ -128,6 +139,7 @@ public class PageUtility {
 	}
 	
 	/**
+	 * @author TheTechie AutomationLabs
 	 * 
 	 * @param frameIdOrName of frame to be switched
 	 * @param driver accepts any browser driver object
@@ -137,6 +149,8 @@ public class PageUtility {
 	}
 	
 	/**
+	 * @author TheTechie AutomationLabs
+	 *
 	 * @param element accepts webpage element
 	 * @param driver accepts any browser driver object
 	 */
@@ -145,6 +159,7 @@ public class PageUtility {
 	}
 	
 	/**
+	 * @author TheTechie AutomationLabs
 	 * 
 	 * @param driver accepts any browser driver object
 	 */
@@ -153,6 +168,7 @@ public class PageUtility {
 	}
 	
 	/**
+	 * @author TheTechie AutomationLabs
 	 * 
 	 * @param driver accepts any browser driver object
 	 */
@@ -162,6 +178,7 @@ public class PageUtility {
 	}
 	
 	/**
+	 * @author TheTechie AutomationLabs
 	 * 
 	 * @param driver accepts any browser driver object
 	 */
@@ -171,6 +188,7 @@ public class PageUtility {
 	}
 	
 	/**
+	 * @author TheTechie AutomationLabs
 	 * 
 	 * @param driver accepts any browser driver object
 	 * @return string text from popup
